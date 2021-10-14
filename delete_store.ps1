@@ -1,12 +1,15 @@
-############################################################
-#  *paths recebe a lista com os paths relacionados ao store
-#  
-#  *files pode ser utilizado para ignorar certas 
-#  extensões de arquivos caso necessario 
-#
-#  * Funcao verifyFiles para troubleshoot
-#  * Funcao deleteFiles verifica os arquivos antes de excluir
-############################################################
+##################################################################
+#  *$paths recebe a lista com os paths relacionados ao store     #
+#                                                                #
+#  *$files pode ser utilizado para ignorar certas                #
+#   extensões de arquivos caso necessario                        #
+#                                                                #
+#  * Funcao verifyFiles para troubleshoot                        #
+#     * Retorna os arquivos encontrados                          #
+#  * Funcao deleteFiles verifica os arquivos antes de excluir    #
+#     * em caso de sucesso retorna os arquivos deletados         #
+#     * em caso de falha retorna "Nenhum arquivo a ser deletado" #
+##################################################################
 $paths= Get-Content -Path .\lista_store.txt
 $files= Get-ChildItem $paths -exclude *.rar,*.xlsx
 function verifyFiles{

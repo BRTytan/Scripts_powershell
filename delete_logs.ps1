@@ -1,4 +1,15 @@
-#Definir os paths, quais pastas vão entrar e os arquivos que vão ser ignorados
+##################################################################
+#  *$paths recebe a lista com os paths relacionados aos Logs     #
+#                                                                #
+#  *$files pode ser utilizado para ignorar certas                #
+#   extens�es de arquivos caso necessario                        #
+#                                                                #
+#  * Funcao verifyFiles para troubleshoot                        #
+#     * Retorna os arquivos encontrados                          #
+#  * Funcao deleteFiles verifica os arquivos antes de excluir    #
+#     * em caso de sucesso retorna os arquivos deletados         #
+#     * em caso de falha retorna "Nenhum arquivo a ser deletado" #
+##################################################################
 $paths= Get-Content -Path .\lista_logs.txt
 $files= Get-ChildItem $paths -exclude *.rar,*.xlsx
 function verifyFiles{
